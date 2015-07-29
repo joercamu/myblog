@@ -14,10 +14,10 @@
 <%= link_to 'Back', articles_path %>
 
 <%= render 'comments/form'%>
-<ul>
+<ul id="comments-box">
 	<% @article.comments.each do |comment|%>
 		<li>
-			<%= comment.body %> - <%= comment %>
+			<%= comment.body %> - <%= comment.user.email %>
 		</li>
 	<%end%>
 

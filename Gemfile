@@ -7,7 +7,10 @@ gem 'rails', '4.2.3'
 gem 'sqlite3'
 #divase for authenti of users
 gem 'devise', '~> 3.5.1'
+#ejecutar algo codigo en coffe script 
 gem 'jquery-turbolinks'
+#gem for upload files
+gem "paperclip", "~> 4.2"
 
 #bootstrap 
 #gem "therubyracer"

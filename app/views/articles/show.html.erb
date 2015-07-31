@@ -4,6 +4,9 @@
   <strong>Title:</strong>
   <%= @article.title %>
 </p>
+<div class="image-article">
+	<%= image_tag @article.cover.url(:medium) %>
+</div>
 
 <p>
   <strong>Body:</strong>

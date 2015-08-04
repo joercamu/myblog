@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   # GET /articles.json
+  # Esto es para la saber si actualiza github
   def index
     @articles = Article.all
   end

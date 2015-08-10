@@ -1,14 +1,14 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :publish]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :authenticate_editor!, only: [:new, :create, :update]
-  before_action :authenticate_admin!, only: [:destroy]
+  before_action :authenticate_admin!, only: [:destroy, :publish]
 
   # GET /articles
   # GET /articles.json
   # Esto es para la saber si actualiza github
   def index
-    @articles = Article.all
+    @articles = Article.publicados.ultimos
   end
 
   # GET /articles/1
@@ -57,7 +57,13 @@ class ArticlesController < ApplicationController
       end
     end
   end
-
+  
+  # PATCH/PUT /articles/1/publish
+  def publish
+      @article.publish!
+      redirect_to @article
+  end
+  
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy

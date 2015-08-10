@@ -1,16 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h1 style="color:<%= @category.color %>;">
   <%= @category.name %>
-</p>
-<p>
-	<%= render '/partials/articles' %>
-</p>
-<p>
-  <strong>Color:</strong>
-  <%= @category.color %>
-</p>
+</h1>
+	<%= render '/articles/articles' %>
+
+
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

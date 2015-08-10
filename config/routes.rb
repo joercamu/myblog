@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root 'articles#index'
+  
+  get  "/dashboard", to: "welcome#dashboard"
+  put "/articles/:id/publish", to: "articles#publish"
 
 end

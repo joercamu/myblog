@@ -1,21 +1,19 @@
 source 'https://rubygems.org'
-
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem for drive Ruby state machines
+gem 'aasm', '~> 4.2.0'
 #divase for authenti of users
 gem 'devise', '~> 3.5.1'
 #ejecutar algo codigo en coffe script 
 gem 'jquery-turbolinks'
 #gem for upload files
 gem "paperclip", "~> 4.2"
+#gem for pagination
+gem 'will_paginate'
 
-#bootstrap 
-#gem "therubyracer"
-#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-#gem "twitter-bootstrap-rails"
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.3'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

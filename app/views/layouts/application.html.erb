@@ -11,13 +11,17 @@
 </head>
 <body style="margin:0px;">
 	<%= render '/partials/navigation' %>
-
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+            
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            	
+            <%= yield %> 
+            
+        </div>
+    </div>
 	
-	
-
-	<%= yield %>
 
 </body>
 </html>

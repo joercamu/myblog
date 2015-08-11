@@ -1,11 +1,13 @@
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @article.title %>
-</p>
+</h1>
 <div class="field">
 	<% @article.categories.each do |category|%>
 		<%= link_to category.name, category %>
 	<%end%>
+</div>
+<div class="field">
+	<p class="article-by">Escrito por: <%= @article.user.email %>, en <%= @article.created_at%></p>
 </div>
 <div class="image-article">
 	<%if @article.cover.exists? %>
@@ -14,12 +16,19 @@
 </div>
 
 <p>
-  <strong>Body:</strong>
-  <%= @article.body %>
+  <%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
 </p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<div class="option-article">
+   <%if user_signed_in? && current_user.is_editor? %>
+  <%= link_to 'Editar', edit_article_path(@article) %> |
+  <%end%>
+  <%if user_signed_in? && current_user.is_admin? %>
+  <%= link_to 'Eliminar', @article, method: :delete, data: { confirm: 'Estas seguro?' } %> |
+  <%end%>
+  <%if user_signed_in? && @article.may_publish? %>
+  <%= link_to 'Publicar', "#{@article.id}/publish", method: :put %>
+  <%end%>
+</div>
 
 <%= render 'comments/form'%>
 <ul id="comments-box">

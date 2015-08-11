@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   # Esto es para la saber si actualiza github
   def index
-    @articles = Article.publicados.ultimos
+    @articles = Article.paginate(page: params[:page],per_page: 9).publicados.ultimos
   end
 
   # GET /articles/1
@@ -82,6 +82,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :cover, :categories)
+      params.require(:article).permit(:title, :body, :cover, :categories, :markup)
     end
 end

@@ -1,31 +1,21 @@
-
-  <%= link_to 'New Article', new_article_path %>
+<%= link_to 'New Article', new_article_path %>
+<div class="container">
+  <div class="row">
   <% @articles.each do |article| %>
-  <div class="article">
-    <h1 class="article-title"><%= link_to article.title, article %></h1>
-    <div class="article-image">
-      <%if article.cover_file_name.nil? %>
-      <%else%>
-      <%=image_tag article.cover.url(:medium) %>
-      <%end%>
-    </div>
-    <p class="article-body"><%= article.body %></p>
-    <p class="article-by">Escrito por: <%= article.user.email %>, en <%= article.created_at%></p>
-    <div class="article-options">
-      <ul>
-        <%if user_signed_in? && current_user.is_editor? %>
-        <li><%= link_to 'Editar', edit_article_path(article) %></li>
-        <%end%>
-        <%if user_signed_in? && current_user.is_admin? %>
-        <li><%= link_to 'Eliminar', article, method: :delete, data: { confirm: 'Estas seguro?' } %></li>
-        <%end%>
-        <%if user_signed_in? && article.may_publish? %>
-        <li><%= link_to 'Publicar', "articles/#{article.id}/publish", method: :put %></li>
-        <%end%>
-      </ul>
-    </div>
+      <div class="col-md-4 top-space">
+        <div class="box relative article-heigth">
+          <div class="absolute article-heigth background-cover text-center" style="background:url(<%= article.cover.url(:medium)%>);top:0px;left:0px;width:100%;">
+              
+          </div>
+          <div class="absolute article-40 background-cover text-center" style="background:rgba(0,0,0,0.5);top:60%;left:0px;width:100%;">
+            <%=link_to article.title, article, class:"white",style:"font-size:18px" %>
+          </div>
+        </div>
+      </div>
+  <% end %>
   </div>
-  <hr>
+  <div class="text-center top-space"><%= will_paginate @articles %></div>
+</div>
 
-<% end %>
+
 

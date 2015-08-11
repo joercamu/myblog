@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
 
     #scopes!!! agrupaciones de datos o condiciones
     scope :publicados, ->{ where(state: "published")}
-    scope :ultimos, ->{order("created_at DESC").limit(10)}
+    scope :ultimos, ->{order("created_at DESC")}
     
   	#status machine
   	aasm column: "state" do
@@ -40,9 +40,11 @@ class Article < ActiveRecord::Base
 
   	def save_categories
   		#raise @categories.to_yaml
-  		@categories.each do |category_id|
-  			HasCategory.create(category_id: category_id, article_id: self.id)
-  		end
+  		unless @categories.nil?
+  		  @categories.each do |category_id|
+  			  HasCategory.create(category_id: category_id, article_id: self.id)
+  	  	end
+  	  end
   	end
 
 end

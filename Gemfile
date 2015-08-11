@@ -9,6 +9,10 @@ gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.2"
 #gem for pagination
 gem 'will_paginate'
+#gem editor
+gem 'epic-editor-rails'
+gem 'sanitize'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'

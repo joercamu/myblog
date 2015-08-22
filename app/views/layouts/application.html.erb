@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  
-</head>
-<body style="margin:0px;">
-	<%= render '/partials/navigation' %>
-    <div class="row">
-        <div class="col-xs-offset-1 col-xs-10">
-            
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            	
-            <%= yield %> 
-            
-        </div>
-    </div>
-	
+    <title><%= content_for?(:title) ? yield(:title) : "Simplifica tu negocio" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    
+    <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/assets/slogan/css/animation.css" />
+    
+    
+  </head>
+
+  <body>
+    <%= render 'partials/navigation'%>
+    <div class="notice"><%=notice%></div>
+    <div class="alert"><%=alert%></div>
+    <%= yield %>  
+    <%= render 'partials/footer'%>
+  </body>
 </html>

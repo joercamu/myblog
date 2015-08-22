@@ -12,6 +12,8 @@ gem 'will_paginate'
 #gem editor
 gem 'epic-editor-rails'
 gem 'sanitize'
+#gem fundation theme
+gem 'foundation-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   # Esto es para la saber si actualiza github
   def index
-    @articles = Article.paginate(page: params[:page],per_page: 9).publicados.ultimos
+    @articles = Article.paginate(page: params[:page],per_page: 3).publicados.ultimos
   end
 
   # GET /articles/1

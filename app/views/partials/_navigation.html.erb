@@ -1,16 +1,40 @@
-<ul class="nav row no-margin-top">
-	<li class="col-md nav-option" ><%= link_to "Inicio", root_path %></li>
-	<li class="col-md nav-option active" ><%= link_to "Articulos", articles_path %></li>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      
+      <h1 class="slogan"><i class="icon-logo"></i><%= link_to "SIMPLIFICA TU NEGOCIO", root_path, class:"slogan",style:"display:initial" %></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
 
-	<% @categories.each do |category|%>
-		<li class="col-md nav-option" ><%= link_to category.name, category%></li>
-	<%end%>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">
+        <a href="#">Servicios</a>
+        <ul class="dropdown">
+          <% @categories.each do |category|%>
+            <li><%= link_to category.name, category%></li>
+          <%end%>
+        </ul>
+      </li>
+      <li class=""><%= link_to "Articulos", articles_path%></li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="right">
+      	<%if user_signed_in? %>
+      		<li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></li>
+      	<%else%>
+      		<li><%= link_to "Iniciar sesion", new_user_session_path %></li>
+      		<li><%= link_to "Registrarse", new_user_registration_path %></li>
+      	<%end%>
+    </ul>
+  </section>
+</nav>
 
 
-	<%if user_signed_in? %>
-		<li class="col-md nav-option" ><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></li>
-	<%else%>
-		<li class="col-md nav-option" ><%= link_to "Iniciar sesion", new_user_session_path %></li>
-		<li class="col-md nav-option" ><%= link_to "Registrarse", new_user_registration_path %></li>
-	<%end%>
-</ul>
+
+
+

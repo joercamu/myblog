@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810170625) do
+ActiveRecord::Schema.define(version: 20150901211320) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150810170625) do
     t.datetime "cover_updated_at"
     t.string   "state",              default: "in_draft"
     t.text     "markup",             default: ""
+    t.integer  "visits",             default: 0
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150810170625) do
     t.string   "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "info"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -46,6 +48,15 @@ ActiveRecord::Schema.define(version: 20150810170625) do
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "body"
+    t.string   "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "has_categories", force: :cascade do |t|
     t.integer  "article_id"

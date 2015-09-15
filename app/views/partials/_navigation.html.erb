@@ -1,28 +1,36 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      
-      <h1 class="slogan"><i class="icon-logo"></i><%= link_to "SIMPLIFICA TU NEGOCIO", root_path, class:"slogan",style:"display:initial" %></h1>
+      <h1 class="slogan"><%= link_to "SIMPLIFICA TU NEGOCIO", root_path %></h1>
     </li>
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
 
   <section class="top-bar-section">
-    <!-- Right Nav Section -->
+<!-- left Nav Section -->
     <ul class="left">
       <li class="has-dropdown">
         <a href="#">Servicios</a>
         <ul class="dropdown">
           <% @categories.each do |category|%>
-            <li><%= link_to category.name, category%></li>
+            <li><%= link_to category.name, category ,style:"border-left: 3px solid #{category.color}"%></li>
           <%end%>
         </ul>
       </li>
-      <li class=""><%= link_to "Articulos", articles_path%></li>
+      <li><%= link_to "Contactenos", contactenos_path %></li>
+      <li class="has-dropdown">
+        <a href="">Nosotros</a>
+        <ul class="dropdown">
+          <li><%= link_to "Quienes Somos", quienes_somos_path %></li>
+          <li><%= link_to "Contactenos", contactenos_path %></li>
+          <li><%= link_to "Tecnologias", tecnologias_path %></li>
+        </ul>
+      </li>
+      <li><a href="#">Siguenos</a></li>
     </ul>
 
-    <!-- Left Nav Section -->
+<!-- right Nav Section -->
     <ul class="right">
       	<%if user_signed_in? %>
       		<li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></li>

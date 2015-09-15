@@ -1,18 +1,25 @@
+<section class="hero" style="height:auto; background:url('/assets/wallpapers/rain.jpg')">
+  <div class="row">
+    <div class="small-12 columns">
+        <% @category.color %>
+        <h1 class="name-category">
+            <%= @category.name %>
+            <%if user_signed_in?%>
+                <%= link_to '| Edit', edit_category_path(@category) %>
+            <%end%>
+        </h1>
+    <p>Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per.</p>
+    
+    </div>
+    <div class="small-centered medium-uncentered medium-6 large-5 columns">
+      <div class=""></div>
+    </div>
+  </div>
+</section>
+
 <div class="row">
-    <div class="large-centered small-12 large-12 colunms panel">
-        <section class="">
-            <h1 class="name-category" style="color:<%= @category.color %>;">
-              <%= @category.name %>
-              <%if user_signed_in?%>
-              <%= link_to '| Edit', edit_category_path(@category) %>
-              <%end%>
-            </h1>
-        </section>
+    <div class="small-12 columns">
         <%= render '/articles/articles' %>
     </div>
 </div>
-
-
-
-
 

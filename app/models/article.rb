@@ -34,6 +34,10 @@ class Article < ActiveRecord::Base
   	def categories=(value)
   		@categories = value
   	end
+    def update_visits_count
+    		self.save if self.visits.nil?
+    		self.update(visits: self.visits + 1)
+    end
   	#
   	
   	private

@@ -4,7 +4,7 @@
           <%= @article.title %>
         </h1>
         <section class="share-social">
-          <a href="<%="http://www.facebook.com/sharer.php?u=".concat( root_url).concat('articles/').concat(@article.id.to_s)%>" class="button tiny facebook" target="_black"><i class="fi-social-facebook" style="font-size:1rem"> </i> Compartir Facebook</a>
+          <a href="<%="http://www.facebook.com/sharer.php?u=".concat( root_url).concat('articles/').concat(@article.id.to_s)%>" class="button tiny color-facebook" target="_black"><i class="fi-social-facebook" style="font-size:1rem"> </i> Compartir Facebook</a>
         </section>
         <div class="field">
         	<% @article.categories.each do |category|%>
@@ -14,7 +14,11 @@
         <div class="field">
         	<p class="article-by green">Escrito por: <%= @article.user.name %>, | <%= @article.created_at.strftime("%Y-%m-%d")%></p>
         </div>
-        
+        <%if user_signed_in? %>
+          <div class="field">
+            <p>visitas: <%=@article.visits %></p>
+          </div>
+        <%end%>
         
         	<%if @article.cover.exists? %>
           	<a class="th" href="<%=@article.cover.url() %>">

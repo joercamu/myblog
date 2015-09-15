@@ -1,0 +1,24 @@
+<div class="hero" style="height:60vh;background:url('http://wallpoper.com/images/00/35/89/99/sunrise-trees_00358999.jpg')">
+  <div class="row">
+    <div class="small-12 columns">
+      <h1>Nuestras tecnologias y herramientas empleadas</h1>
+      <p>Simplifica tu negocio utiliza las mejores tecnologias y herramientas para brindarte una magnifica experiencia, llena de
+      fluidez, seguridad, y efectividad.</p>
+      <p>Algunas de nuestras tecnologias son:</p>
+    </div>
+  </div>
+</div>
+<div class="row top-space">
+  <% @techs.each do |tech|%>
+  <div class="small-4 columns">
+    <div class="image-wrapper overlay-fade-in">
+     <img src="<%=tech['path']%>" />
+      <div class="image-overlay-content">
+        <h2><%=tech['name']%></h2>
+        <p></p>
+        <!--<a href="#" class="button">Buy Me</a>-->
+      </div>
+    </div>
+  </div> 
+  <%end%>
+</div>

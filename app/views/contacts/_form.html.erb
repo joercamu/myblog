@@ -1,0 +1,29 @@
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h4 class="green">Oops!... parece que algo no anda bien.</h4>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder:"Tu Nombre *" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :email, placeholder:"Dejanos tu Email *" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :body, style:"height:180px", placeholder:"Aqui puedes dejar tu mensaje.... *" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :phone, placeholder:"Telefono de Contacto " %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Enviar", class:"button"%>
+  </div>
+<% end %>

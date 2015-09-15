@@ -1,5 +1,5 @@
 <%if user_signed_in?%>
-  <%=link_to 'Nuevo Articulo', new_article_path, class:"button"%>
+  <%=link_to 'Nuevo Articulo', new_article_path, class:"button top-space"%>
 <%end%>
   <div class="row">
   <% @articles.each do |article| %>
@@ -21,7 +21,7 @@
       </div>
   <% end %>
   </div>
-  <div class="center top-space"><%= will_paginate @articles, :next_label => ">",:previous_label => "<", :class => "pagination" %></div>
+  <div class="center"><%= will_paginate @articles, :next_label => ">",:previous_label => "<", :class => "pagination" %></div>
 
 
 
